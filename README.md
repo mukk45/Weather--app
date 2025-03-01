@@ -1,2 +1,3 @@
 # Weather--app
-This is my first Git Repository &lt;br> 
+This is my first Git Repository 
+<br> 
