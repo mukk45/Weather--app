@@ -1,5 +1,5 @@
 .container {
-    background-color: #fff;
+    background-color: #3829c0;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,8 @@
         background-color: #007BFF;
         color: white;
         border: none;
-        border-radius: 4px; }
+        border-radius: 4px;
+    margin:10px; }
 
         @media (max-width: 600px) {
             .container {
@@ -42,3 +43,33 @@
             margin-top: 10px;
             }
         }
+
+
+
+        #temperature {
+            border: 2px solid;
+            border-radius: 8px;
+            font-size: 36px;
+            color: #810666;
+            margin-bottom: 10px; }
+
+        #weather-description {
+            border: 2px solid;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #670808;
+            margin-bottom: 20px; }
+
+        #city-name {
+            border: 2px solid;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #669d14;
+            margin-bottom: 10px; }
+        
+        .weather-info {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
