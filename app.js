@@ -1,8 +1,10 @@
+
 document.getElementById('search-btn').addEventListener('click',
     function() {
      const city = document.getElementById('city-input').value;
      console.log('City entered:', city);//fetch code will bw added later
 fetchWeatherData(city);
+fetch3DayForecast(city);
 });
 
 async function fetchWeatherData(city) {
@@ -25,3 +27,40 @@ fetch(apiUrl)
   });
 
 }
+
+async function fetch3DayForecast(city) {
+  const apiKey = "ae66e47d97fb8d19ab2f6f4626daba99"; // Replace with your real OpenWeatherMap API key
+  const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+
+  try {
+    const response = await fetch(forecastUrl);
+    const data = await response.json();
+
+    // Filter 12:00 PM forecast for 3 days
+    const forecastData = data.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+
+    const dayCards = document.querySelectorAll(".day-card");
+
+    forecastData.forEach((item, index) => {
+      if (index < dayCards.length) {
+        const card = dayCards[index];
+
+        const date = new Date(item.dt_txt).toDateString();
+        const icon =` https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+        const temp = `${Math.round(item.main.temp)}°C`;
+        const desc = item.weather[0].description;
+
+        card.querySelector(".day-date").textContent = date;
+        card.querySelector(".day-weather-icon img").src = icon;
+        card.querySelector(".day-weather-icon img").alt = desc;
+        card.querySelector(".day-temperature").textContent = temp;
+        card.querySelector(".day-description").textContent = desc;
+      }
+    });
+
+  } catch (error) {
+    console.error("Error fetching 3-day forecast:", error);
+  }
+}
+  
+

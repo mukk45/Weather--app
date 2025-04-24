@@ -10,46 +10,55 @@
     <div class="container">
         <h1>Weather App</h1>
         <div class="search-box">
-        <input type="text" id="city-input" placeholder="Enter city name">
+        <input type="text" id="city-input" placeholder="Enter city
+       name">
         <button id="search-btn">Search</button>
         </div>
         <div class="weather-info">Weather Information
-        <p id="city-name">City Name:-</p>
-        <p id="temperature">Temperature:-</p>
-        <p id="weather-description">Weather:-</p>
+      <p id="city-name">City name:-    </p>
+        <p id="temperature">Temperature:-  </p>
+ <p id="weather-description"> Weather-Description</p>
+     <script src="app.js"></script>
 
-        <div class="forecast">
-            <h2>3-Day Weather Forecast</h2>
-            <div class="forecast-days">
-                <div class="day-card">
-                    <div class="day-date">Monday, May 26</div>
-                    <div class="day-weather-icon"><img src="weather-icon.png"
-                   alt="Weather Icon"></div>
-                    <div class="day-temperature">25°C</div>
-                    <div class="day-description">Partly Cloudy</div>
-                   </div>
-                   <div class="day-card">
-                    <div class="day-date">Wednesday, June 18</div>
-                    <div class="day-weather-icon"><img src="weather-icon.png"
-                   alt="Weather Icon"></div>
-                    <div class="day-temperature">25°C</div>
-                    <div class="day-description">Partly Cloudy</div>
-                   </div>
-                   <div class="day-card">
-                    <div class="day-date">Sunday, May 25</div>
-                    <div class="day-weather-icon"><img src="weather-icon.png"
-                   alt="Weather Icon"></div>
-                    <div class="day-temperature">25°C</div>
-                    <div class="day-description">Partly Cloudy</div>
-                   </div>
-                <!-- Forecast data for each day will be added dynamically
-               -->
-                </div>
-               </div>
-               
-               
+     <!-- 3 day weather forecast -->
+
+     <div class="forecast">
+      <h2>3-Day Weather Forecast</h2>
+      <div class="forecast-days">
+        <!-- Forecast data for each day will be added dynamically -->
+    
+        <div class="day-card">
+          <div class="day-date"></div>
+          <div class="day-weather-icon">
+            <img src="weather-icon.png" alt="Weather Icon">
+          </div>
+          <div class="day-temperature"></div>
+          <div class="day-description"></div>
         </div>
+    
+        <div class="day-card">
+          <div class="day-date"></div>
+          <div class="day-weather-icon">
+            <img src="weather-icon.png" alt="Weather Icon">
+          </div>
+          <div class="day-temperature"></div>
+          <div class="day-description"></div>
+        </div>
+    
+        <div class="day-card">
+          <div class="day-date"></div>
+          <div class="day-weather-icon">
+            <img src="weather-icon.png" alt="Weather Icon">
+          </div>
+          <div class="day-temperature"></div>
+          <div class="day-description"></div>
+        </div>
+    
+      </div>
     </div>
-    <script src="app.js"></script>
+
+
+
+
 </body>
 </html>
