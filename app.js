@@ -47,14 +47,18 @@ async function fetch3DayForecast(city) {
 
         const date = new Date(item.dt_txt).toDateString();
         const icon =` https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
-        const temp = `${Math.round(item.main.temp)}°C`;
-        const desc = item.weather[0].description;
+        const temp = `Temperature: ${Math.round(item.main.temp)}°C`;
+        const desc = `Weather: ${item.weather[0].description}`;
+
+        const lat =data.city.coord.lat;
+        const lon =data.city.coord.lon;
 
         card.querySelector(".day-date").textContent = date;
         card.querySelector(".day-weather-icon img").src = icon;
         card.querySelector(".day-weather-icon img").alt = desc;
         card.querySelector(".day-temperature").textContent = temp;
         card.querySelector(".day-description").textContent = desc;
+        card.querySelector(".coordinates").textContent = `Latitude :${Lat}, Longitude :${lon}`;
       }
     });
 
