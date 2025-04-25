@@ -109,3 +109,23 @@
                 margin-bottom: 20px;
                 border-color: #d25c17;
                }
+
+        #lat-input, #lon-input {
+            padding: 10px;
+            width: (100% - 22px);
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #latlon-btn {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #669d14;
+            color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            width: 100%;
+            
+        }

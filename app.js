@@ -47,7 +47,7 @@ async function fetch3DayForecast(city) {
 
         const date = new Date(item.dt_txt).toDateString();
         const icon =` https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
-        const temp = `Temperature: ${Math.round(item.main.temp)}°C`;
+        const temp = `Temperature :${Math.round(item.main.temp)}°C`;
         const desc = `Weather: ${item.weather[0].description}`;
 
         const lat =data.city.coord.lat;
@@ -58,7 +58,7 @@ async function fetch3DayForecast(city) {
         card.querySelector(".day-weather-icon img").alt = desc;
         card.querySelector(".day-temperature").textContent = temp;
         card.querySelector(".day-description").textContent = desc;
-        card.querySelector(".coordinates").textContent = `Latitude :${Lat}, Longitude :${lon}`;
+        card.querySelector(".coordinates").textContent = `Latitude :${lat}, Longitude :${lon}`;
       }
     });
 
@@ -67,4 +67,38 @@ async function fetch3DayForecast(city) {
   }
 }
   
+document.getElementById('latlon-btn').addEventListener('click', function () {
+  const lat = document.getElementById('lat-input').value;
+  const lon = document.getElementById('lon-input').value;
 
+  if (!lat || !lon) {
+      alert("Please enter both latitude and longitude");
+      return;
+  }
+
+  fetchWeatherByCoordinates(lat, lon);
+});
+
+async function fetchWeatherByCoordinates(lat, lon) {
+  const apiKey = 'ae66e47d97fb8d19ab2f6f4626daba99';
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+  try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      // Update UI with weather info
+      document.getElementById("city-name").innerHTML = `City Name: ${data.name}, ${data.sys.country}`;
+      document.getElementById("temperature").innerHTML = `Temperature: ${data.main.temp}°C`;
+      document.getElementById("weather-description").innerHTML = `Weather: ${data.weather[0].description}`;
+
+      // Auto-fill city input box
+      document.getElementById('city-input').value = data.name;
+
+      // Optional: fetch forecast using auto-filled city
+      fetch3DayForecast(data.name);
+
+  } catch (error) {
+      console.error("Error fetching data by coordinates:", error);
+  }
+}
