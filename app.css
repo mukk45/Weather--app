@@ -129,3 +129,11 @@
             width: 100%;
             
         }
+
+        #toggle-temp-btn {
+            background-color:#007BFF;
+            padding:6px 4px 6px 4px;
+            color: #ccc;
+            border-radius: 5px;
+ 
+           }

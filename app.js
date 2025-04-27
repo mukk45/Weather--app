@@ -1,4 +1,4 @@
-
+let isCelsius = true;
 document.getElementById('search-btn').addEventListener('click',
     function() {
      const city = document.getElementById('city-input').value;
@@ -68,7 +68,10 @@ async function fetch3DayForecast(city) {
 
         const date = new Date(item.dt_txt).toDateString();
         const icon =` https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
-        const temp = `Temperature :${Math.round(item.main.temp)}°C`;
+        const tempValue = item.main.temp;
+          const temp = isCelsius
+          ? `Temperature: ${Math.round(tempValue)}°C`
+          :`Temperature: ${Math.round((tempValue * 9) / 5 + 32)}°F`;
         const desc = `Weather: ${item.weather[0].description}`;
 
         const lat =data.city.coord.lat;
@@ -153,3 +156,14 @@ async function fetch3DayForecastByCoords(lat, lon) {
     console.error("3-day forecast error (coords):", error);
   }
 }
+
+
+document.getElementById('toggle-temp-btn').addEventListener('click', () => {
+  isCelsius = !isCelsius;
+  document.getElementById('toggle-temp-btn').textContent = isCelsius ? 'Show in °F' : 'Show in °C';
+
+  const city = document.getElementById('city-input').value.trim();
+  if (city) {
+    fetch3DayForecast(city); // reload forecast with new temp unit
+  }
+});
