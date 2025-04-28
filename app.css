@@ -178,3 +178,131 @@
         .search-box button {
             margin-top: 10px;
         }
+
+
+        /* Default styles - for desktop screens and larger devices */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* Takes 80% of the screen width */
+    margin: 50px auto;
+    background-color: #0f5e56;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(5, 26, 67, 0.1);
+    text-align: center;
+}
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+#city-input, #lat-input, #lon-input {
+    padding: 10px;
+    width: 32%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin: 5px;
+    width: 30%;
+}
+/* Weather Cards */
+.forecast {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.day-card {
+    background-color: #8a9edb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 30%;
+    text-align: center;
+}
+/* Add Media Queries for Different Screen Sizes */
+/* For Tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        margin: 20px;
+    }
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+    #city-input, #lat-input, #lon-input, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .forecast {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .day-card {
+        width: 100%;
+    }
+}
+/* For Mobile Devices (Below 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        margin: 20px;
+    }
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+    #city-input, #lat-input, #lon-input, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .forecast {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .day-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    #city-name, #temperature, #weather-description {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+/* For Small Devices (Mobile Portrait, Below 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+    .day-card {
+        padding: 10px;
+    }
+    .day-weather-icon img {
+        width: 40px;
+        height: 40px;
+    }
+    #city-name, #temperature, #weather-description {
+        font-size: 16px;
+        padding: 8px;
+    }
+    button {
+        padding: 8px;
+        width: 100%;
+    }
+    .forecast {
+        flex-direction: column;
+        align-items: center;
+    }
+}
